@@ -1,8 +1,8 @@
-#' @import rTensor
-#' @import gtools
-#' @import LICORS
-#' @import mclust
-NULL
+library(rTensor)
+library(gtools)
+library(LICORS)
+library(mclust)
+
 
 
 
