@@ -1,8 +1,8 @@
-#' @import rTensor
-#' @import gtools
-#' @import LICORS
-#' @import mclust
-NULL
+library(rTensor)
+library(gtools)
+library(LICORS)
+library(mclust)
+
 
 
 
@@ -18,7 +18,7 @@ TBM.generator <- function(p, r, delta = 1, sigma = 1){
   try(if(length(p)!=length(r) | any(r>p)) stop("invalid input: Y should be of tensor type."))
 
   try(if(delta <= 0) stop("Invalid delta."))
-
+  
   # Generate core tensor.
   d = length(p)
   S.array = array(rnorm(prod(r)), dim=r) # Core tensor
@@ -35,8 +35,8 @@ TBM.generator <- function(p, r, delta = 1, sigma = 1){
     }
   }
   S = S * delta / delta.min
-
-  # Generate random labels
+  
+  # Generate random labels 
   Z = list()
   z = list()
   for (i in 1:d){
@@ -111,11 +111,11 @@ SC <- function(Y, r){
   try(if(class(Y) != "Tensor") stop("invalid input: Y should be of tensor type."))
   p = dim(Y)
   d = length(p)
-
+  
   if(is.atomic(r) && length(r)==1){
     r = rep(r, d)
   }
-
+  
   z_0 = list();
   for (i in 1:d){
     MY = k_unfold(Y, i)@data
@@ -138,17 +138,17 @@ HO.SC <- function(Y, r){
   try(if(class(Y) != "Tensor") stop("invalid input: Y should be of tensor type."))
   p = dim(Y)
   d = length(p)
-
+  
   if(is.atomic(r) && length(r)==1){
     r = rep(r, d)
   }
-
+  
   U_t = list();
   for (i in 1:d){#Initialization
     MY = k_unfold(Y, i)@data
     U_t = c(U_t, list(t(svd(MY%*%t(MY))$u[,1:r[i]])))
   }
-
+  
   for(i in 1:d){#Projection
     A = ttl(Y, U_t[-i], (1:d)[-i])
     A_matrix = k_unfold(A, i)@data
@@ -162,14 +162,14 @@ HO.SC <- function(Y, r){
     Kmatrix = t(U_t[[i]]) %*% U_t[[i]] %*% k_unfold(Kmatrix,i)@data
     z_0 = c(z_0, list(kmeanspp(Kmatrix, r[i])$cluster))
   }
-
+  
   return(z_0)
 }
 
 
 #' High-order Lloyd Algorithm.
 #' @param Y Observed tensor.
-#' @param z Vector of initialized labels.
+#' @param z Vector of initialized labels. 
 #' @param t_max maximum number of iterations.
 #' @return Estimated clustering labels.
 #' @export
@@ -206,9 +206,9 @@ HO.Lloyd <- function(Y, z, t_max = 10){
       z = c(z, list(zi))
     }
   }
-
+  
   return(z)
-
+  
 }
 
 #' Calculate ARI of two sets of labels.
@@ -216,7 +216,6 @@ HO.Lloyd <- function(Y, z, t_max = 10){
 #' @param z.hat Second clustering vector.
 #' @param mode Averaged/Minimal ARI.
 #' @return Calculated ARI.
-#' @export
 ARI <- function(z,z.hat,mode=c("averaged","minimal")){
   d = length(z)
   if (mode == "averaged"){
