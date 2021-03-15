@@ -1,0 +1,17 @@
+Package: HLloyd
+Type: Package
+Title: High-order Lloyd Algorithm (HLloyd)
+Version: 0.1.0
+Author: Rungang Han, Yuetian Luo, Miaoyan Wang, Anru Zhang
+Maintainer: Rungang Han <rhan32@stat.wisc.edu>
+Description: Multiway clustering for high-order tensor data with block structure.
+    See Han et al. (2021) for reference.
+Depends:
+    rTensor,
+    gtools,
+    LICORS,
+    mclust,
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1615843837167.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3924275547",
+    "id" : "26565183",
+    "lastKnownWriteTime" : 1615843874,
+    "last_content_update" : 1615843874686,
+    "path" : "D:/Github/HLloyd/R/HLloyd.R",
+    "project_path" : "R/HLloyd.R",
+    "properties" : {
+        "cursorPosition" : "0,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
