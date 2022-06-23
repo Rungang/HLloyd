@@ -42,4 +42,4 @@ The code for obtaining numeric results are collected in the /experiment subfolde
 - Real data in Section 7.2 (Online Click-through Data)
   - Data file: Click_through.csv
   - code files: click_through.R
-  - Notice: In the data file, the four columns represent the user ID, item ID, timepoint (1~24h) and date (1~8 day).
+  - Notice: In the data file, the four columns represent the user ID, item ID, timepoint (1 - 24h) and date (1 - 8 day).
