@@ -17,5 +17,5 @@ devtools::install_github("Rungang/HLloyd")
 
 See example.R for illustration.
 
-Please contact rhan32@stat.wisc.edu with any questions or comments.
+Please contact hrg.stat@gmail.com with any questions or comments.
 
