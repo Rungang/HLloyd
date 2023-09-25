@@ -1,6 +1,9 @@
 # HLloyd
 This is the R package for paper: "Exact Clustering in Tensor Block Model: Statistical Optimality and Computational Limit" by Rungang Han, Yuetian Luo, Miaoyan Wang and Anru Zhang (2020).
 
+Update (2023.9): The “kmeanspp()” function used in HOLloyd.R is removed from the current version of the “pracma” package. To replicate the result, please download the version 1.5.5. of the “pracma” package from the website (https://cran.r-project.org/src/contrib/Archive/pracma/) to the local and install the local package using the following code:
+install.packages(“pracma”, lib= ‘/your-R-package-lib’)
+
 # Instructions
 HLloyd requires the following packages for full functionality: 'rTensor', 'gtools', 'LICORS', 'mclust'. Use the following commands for installation:
 
